@@ -1,0 +1,19 @@
+.testimonial-card {
+  background: #1a1a1a;
+  color: #fff;
+  padding: 20px;
+  border-left: 4px solid #ff6a00;
+  font-style: italic;
+  margin-bottom: 16px;
+  border-radius: 4px;
+}
+
+.quote {
+  margin-bottom: 10px;
+}
+
+.user {
+  text-align: right;
+  color: #ccc;
+  font-size: 0.9rem;
+}

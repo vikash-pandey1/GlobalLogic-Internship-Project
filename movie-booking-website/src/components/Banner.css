@@ -1,0 +1,96 @@
+.banner {
+  width: 100%;
+  background-size: cover;
+  background-position: center; 
+  background-repeat: no-repeat; 
+  display: flex; 
+  align-items: center;
+  justify-content: flex-start;
+  position: relative; 
+  color: white; 
+  overflow: hidden;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 1;
+}
+
+.banner-content {
+  z-index: 2; 
+  padding-left: 80px;
+  max-width: 600px;
+}
+
+.banner-content h1 {
+  font-size: 4em;
+  margin-bottom: 20px;
+}
+
+.banner-content h1 span {
+  color: #f7931a; /* Orange color for "Next" */
+}
+
+.banner-content p {
+  font-size: 1.2em; /* Adjust font size as needed */
+  line-height: 1.6;
+  margin-bottom: 40px;
+}
+
+.banner-buttons {
+  display: flex;
+  gap: 20px; /* Space between buttons */
+  margin-bottom: 40px; /* Space below buttons */
+}
+
+.browse-btn,
+.trailer-btn {
+  display: inline-block;
+  padding: 12px 25px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.browse-btn {
+  background-color: #f7931a; /* Orange background */
+  color: white;
+}
+
+.browse-btn:hover {
+  background-color: #e0830a; /* Darker orange on hover */
+}
+
+.trailer-btn {
+  background-color: transparent;
+  color: white;
+  border: 2px solid white; /* White border */
+}
+
+.trailer-btn:hover {
+  background-color: rgba(255, 255, 255, 0.2); /* Slight white background on hover */
+}
+
+.icons {
+  display: flex;
+  gap: 30px; /* Space between icon items */
+  margin-top: 20px; /* Adjust as needed */
+}
+
+.icons div {
+  display: flex;
+  align-items: center;
+  font-size: 0.9em;
+  opacity: 0.8;
+}
+
+.icons i {
+  margin-right: 8px;
+  color: #f7931a; /* Orange color for icons */
+}

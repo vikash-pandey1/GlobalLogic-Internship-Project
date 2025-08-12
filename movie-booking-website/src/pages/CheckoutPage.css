@@ -1,0 +1,180 @@
+.checkout-wrapper {
+  background-color: #000;
+  min-height: 100vh;
+  padding: 0;
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  margin-top: 70px;
+}
+
+/* Header */
+.checkout-header {
+  display: flex;
+  align-items: center;
+  padding: 20px 40px;
+  background-color: #0f172a;
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+.checkout-header h2 {
+  margin-top: 20px;
+  margin-right: 1200px;
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+
+.back-button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.8rem;
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+/* Main content */
+.checkout-main {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  padding: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Left: Booking Summary */
+.checkout-left {
+  flex: 1;
+  background-color: #111a2c;
+  padding: 30px;
+  border-radius: 16px;
+  max-width: 500px;
+}
+
+.checkout-left h3 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+.movie-section {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.movie-section img {
+  width: 100px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.movie-section h4 {
+  font-size: 1.25rem;
+  margin-bottom: 8px;
+}
+
+.movie-tags {
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
+/* Info rows (cinema, date, etc.) */
+.info-rows {
+  border-top: 1px solid #2a2a2a;
+  padding-top: 20px;
+  margin-top: 20px;
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 14px;
+  font-size: 1rem;
+  color: #ddd;
+}
+
+.total-row {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.price {
+  color: #f97316; /* orange */
+}
+
+/* Right: Payment Form */
+.checkout-right {
+  flex: 1;
+  background-color: #111a2c;
+  padding: 30px;
+  border-radius: 16px;
+  max-width: 500px;
+}
+
+.checkout-right h3 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+.checkout-right form {
+  display: flex;
+  flex-direction: column;
+}
+
+.checkout-right label {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.95rem;
+  margin-bottom: 16px;
+  color: #fff;
+}
+
+.checkout-right input {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #444;
+  background-color: #0f172a;
+  color: white;
+  font-size: 1rem;
+  margin-top: 6px;
+}
+
+.form-row {
+  display: flex;
+  gap: 16px;
+}
+
+/* Confirm button */
+.confirm-btn {
+  margin-top: 20px;
+  padding: 12px 0;
+  background-color: #f97316;
+  color: white;
+  border: none;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.confirm-btn:hover {
+  background-color: #fb923c;
+}
+
+/* Secure text */
+.secure-text {
+  margin-top: 12px;
+  font-size: 0.8rem;
+  color: #aaa;
+  text-align: center;
+}
+.error-text {
+  color: red;
+  font-size: 0.8rem;
+  margin-top: 4px;
+}

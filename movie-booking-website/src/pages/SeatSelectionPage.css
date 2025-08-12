@@ -1,0 +1,182 @@
+.seats-container {
+  background-color: #000;
+  color: white;
+  min-height: 100vh;
+  padding-bottom: 100px;
+  margin-top: 70px;
+}
+
+.seats-header {
+  background-color: #0d1323;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.back-button {
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+}
+
+.seats-header h2 {
+  margin: 0;
+  font-size: 22px;
+}
+
+.meta {
+  display: flex;
+  gap: 8px;
+  font-size: 14px;
+  color: #c2c2c2;
+  margin-top: 4px;
+}
+
+.meta .dot {
+  width: 6px;
+  height: 6px;
+  background-color: orange;
+  border-radius: 50%;
+  align-self: center;
+}
+
+.screen {
+  margin: 20px auto;
+  width: 80%;
+  height: 8px;
+  background: linear-gradient(to right, #999, #fff, #999);
+  border-radius: 4px;
+  text-align: center;
+  color: #fff;
+  font-weight: bold;
+  padding-top: 8px;
+}
+
+.seats-grid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  margin: 4px 0;
+}
+
+.row-label {
+  width: 20px;
+  text-align: center;
+  font-size: 12px;
+}
+
+.seat {
+  width: 20px;
+  height: 20px;
+  background-color: #444;
+  margin: 2px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.seat.vip {
+  background-color: #5a2e98;
+}
+
+.seat.occupied {
+  background-color: rgb(232, 31, 54);
+  cursor: not-allowed;
+}
+
+.seat.selected {
+  background-color: yellow;
+}
+
+.legend {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin: 20px 0;
+  font-size: 14px;
+}
+
+.legend .box {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin-right: 6px;
+  vertical-align: middle;
+  border-radius: 4px;
+}
+
+.box.available {
+  background-color: #444;
+}
+
+.box.selected {
+  background-color: yellow;
+}
+
+.box.occupied {
+  background-color: rgb(231, 14, 54);
+}
+
+.box.vip {
+  background-color: #5a2e98;
+}
+
+.checkout {
+  background-color: #0d1323;
+  padding: 16px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border-top: 1px solid #333;
+}
+
+.checkout-header {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.checkout-seats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.seat-pill {
+  background-color: #ff6600;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 14px;
+  color: white;
+}
+
+.checkout-total {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  font-size: 16px;
+  border-top: 1px solid #333;
+  padding-top: 8px;
+  margin-bottom: 16px;
+}
+
+.pay-button {
+  background-color: orange;
+  border: none;
+  border-radius: 8px;
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}

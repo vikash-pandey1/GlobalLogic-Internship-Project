@@ -1,0 +1,18 @@
+{
+  "postedBy": "Posted by",
+  "delete": "Delete",
+  "question": "Question",
+  "youSelected": "You selected",
+  "shareYourThoughts": "Share your thoughts.",
+  "postedByLabel": "Posted By",
+  "thought": "Thought",
+  "askQuestion": "Ask Question",
+  "addYourThoughts": "Add your thoughts",
+  "writeYourQuestion": "Write your question",
+  "option": "Option",
+  "remove": "Remove",
+  "addOption": "+ Add Option",
+  "attachMedia": "Attach image or video",
+  "validationError": "Please fill all required fields correctly.",
+  "create": "Create"
+}

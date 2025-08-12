@@ -1,0 +1,23 @@
+.booking-summary {
+  background-color: #111;
+  padding: 30px;
+  border-radius: 6px;
+  color: white;
+  width: 60%;
+  margin: 20px auto;
+  text-align: left;
+}
+
+.confirm-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #ff6a00;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.confirm-button:hover {
+  background-color: #e65c00;
+}
