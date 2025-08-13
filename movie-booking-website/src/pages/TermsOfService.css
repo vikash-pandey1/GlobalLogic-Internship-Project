@@ -1,0 +1,37 @@
+.terms-container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+  color: white;
+  background: #1c1c1c;
+  border-radius: 8px;
+  line-height: 1.6;
+}
+
+.terms-container h1 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.terms-container p {
+  margin-bottom: 15px;
+}
+
+.terms-container section {
+  margin-bottom: 25px;
+}
+
+.terms-container h2 {
+  font-size: 1.4rem;
+  margin-bottom: 8px;
+  color: #ffcc00;
+}
+
+.terms-container a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.terms-container a:hover {
+  text-decoration: underline;
+}

@@ -1,8 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router-dom'; // Assuming you are using React Router for navigation
+import { useNavigate } from 'react-router-dom';
 import './Footer.css'; // Import the CSS file for styling
 
 const Footer = () => {
+    const navigate = useNavigate();
+  
   return (
     <footer className="footer-section">
       <div className="footer-container">
@@ -19,19 +21,19 @@ const Footer = () => {
         <div className="footer-column">
           <h4 className="column-title">Quick Links</h4>
           <ul className="footer-links">
-            <li><Link to="/now-playing">Now Playing</Link></li>
-            <li><Link to="/coming-soon">Coming Soon</Link></li>
-            <li><Link to="/cinemas">Find Cinemas</Link></li>
-          </ul>
+            <li><span onClick={() => navigate('/now-playing')} >Now Playing</span></li>
+            <li><span onClick={() => navigate('/coming-soon')}>Coming Soon</span></li>
+            <li><span onClick={() => navigate('/cinemas')} >Find Cinemas</span></li>
+          </ul>   
         </div>
 
         {/* Support */}
         <div className="footer-column">
           <h4 className="column-title">Support</h4>
           <ul className="footer-links">
-            <li><Link to="/help">Help Center</Link></li>
-            <li><Link to="/contact">Contact Us</Link></li>
-            <li><Link to="/faqs">FAQs</Link></li>
+            <li><span onClick={() => navigate('/help-center')}>Help Center</span></li>
+            <li><span onClick={() => navigate('/contact-us')}>Contact Us</span></li>
+            <li><span onClick={() => navigate('/faqs')}>FAQs</span></li>
           </ul>
         </div>
 
@@ -39,9 +41,9 @@ const Footer = () => {
         <div className="footer-column">
           <h4 className="column-title">Legal</h4>
           <ul className="footer-links">
-            <li><Link to="/terms">Terms of Service</Link></li>
-            <li><Link to="/privacy">Privacy Policy</Link></li>
-            <li><Link to="/cookies">Cookies Policy</Link></li>
+            <li><span onClick={() => navigate('/terms-service')}>Terms of Service</span></li>
+            <li><span onClick={() => navigate('/privacy-policy')}>Privacy Policy</span></li>
+            <li><span onClick={() => navigate('/cookies-policy')}>Cookies Policy</span></li>
           </ul>
         </div>
       </div>
