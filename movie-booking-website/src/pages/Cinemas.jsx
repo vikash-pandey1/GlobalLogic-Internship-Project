@@ -121,7 +121,7 @@ const Cinemas = () => {
           placeholder="Enter City"
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
-          className="cinema-search-input"
+          className="cinema-search-inpu"
         />
         <button onClick={handleSearch} className="search-icon">🔍</button>
       </div>

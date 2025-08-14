@@ -165,3 +165,14 @@ select {
   align-self: left;
   margin-top: 20px;
 }
+
+
+.cinema-search-input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: black;
+  color: white;
+}

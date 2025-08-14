@@ -31,6 +31,7 @@
   display: flex;
   gap: 28px;
   font-weight: 700;
+  cursor: pointer;
 }
 
 .navbar-links a {

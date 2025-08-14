@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import nowMovies from "../data/nowMovies";
 import upcomingMovies from "../data/upcomingMovies";
@@ -32,16 +32,35 @@ const loadIfNotExpired = () => {
 
 const BookingPage = () => {
   const { category, movieId } = useParams();
-  const allMovies = category === "now" ? nowMovies : upcomingMovies;
+  const allMovies = category === "nowplaying" ? nowMovies : upcomingMovies;
   const movie = allMovies.find((m) => m.id.toString() === movieId);
 
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [selectedCinema, setSelectedCinema] = useState("");
   const [selectedShowtime, setSelectedShowtime] = useState("");
+  const [cinemaSearch, setCinemaSearch] = useState("");
+  const [cinemaDropdownOpen, setCinemaDropdownOpen] = useState(false);
 
+  const dropdownRef = useRef(null);
   const navigate = useNavigate();
 
-  // Load saved state on mount
+  // Filter cinemas based on search
+  const filteredCinemas = cinemas.filter((c) =>
+    c.name.toLowerCase().includes(cinemaSearch.toLowerCase())
+  );
+
+  // Close dropdown on outside click
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
+        setCinemaDropdownOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  // Load saved state
   useEffect(() => {
     const saved = loadIfNotExpired();
     if (saved) {
@@ -51,7 +70,7 @@ const BookingPage = () => {
     }
   }, []);
 
-  // Save on change
+  // Save state
   useEffect(() => {
     saveWithExpiry({
       date: selectedDate,
@@ -93,7 +112,9 @@ const BookingPage = () => {
   return (
     <div className="booking-wrapper">
       <div className="top-info">
-        <button className="back-btn" onClick={() => window.history.back()}>&larr;</button>
+        <button className="back-btn" onClick={() => window.history.back()}>
+          &larr;
+        </button>
         <div>
           <div className="top-meta">
             <h1>{movie.title}</h1>
@@ -102,7 +123,9 @@ const BookingPage = () => {
           </div>
           <div className="genres-time">
             {movie.genre?.map((genre, i) => (
-              <span key={i} className="genre-tag">{genre}</span>
+              <span key={i} className="genre-tag">
+                {genre}
+              </span>
             ))}
             <span className="dot">•</span>
             <span className="duration">{movie.duration}</span>
@@ -119,34 +142,81 @@ const BookingPage = () => {
               <button
                 key={i}
                 onClick={() => setSelectedDate(day)}
-                className={`date-btn ${day.toDateString() === selectedDate.toDateString() ? "active" : ""}`}
+                className={`date-btn ${
+                  day.toDateString() === selectedDate.toDateString()
+                    ? "active"
+                    : ""
+                }`}
               >
-                {day.toLocaleDateString("en-US", { weekday: "short" })}<br />
+                {day.toLocaleDateString("en-US", { weekday: "short" })}
+                <br />
                 {day.getDate()}
               </button>
             ))}
           </div>
 
-          <div className="dropdown-group">
-            <label><span role="img" aria-label="location">📍</span> Select Cinema</label>
-            <select onChange={(e) => setSelectedCinema(e.target.value)} value={selectedCinema}>
-              <option value="">-- Select --</option>
-              {cinemas.map((cinema) => (
-                <option key={cinema.id} value={cinema.name}>
-                  {cinema.name}
-                </option>
-              ))}
-            </select>
+          {/* Custom searchable dropdown */}
+          <div className="dropdown-group" ref={dropdownRef}>
+            <label>
+              <span role="img" aria-label="location">
+                📍
+              </span>{" "}
+              Select Cinema
+            </label>
+            <div
+              className="custom-select"
+              onClick={() => setCinemaDropdownOpen((prev) => !prev)}
+            >
+              {selectedCinema || "-- Select --"}
+              <span className="arrow">{cinemaDropdownOpen ? "▲" : "▼"}</span>
+            </div>
+
+            {cinemaDropdownOpen && (
+              <div className="dropdown-menu">
+                <input
+                  type="text"
+                  placeholder="Search cinema..."
+                  value={cinemaSearch}
+                  onChange={(e) => setCinemaSearch(e.target.value)}
+                  className="cinema-search-input"
+                  onClick={(e) => e.stopPropagation()}
+                />
+                <ul className="dropdown-list">
+                  {filteredCinemas.length > 0 ? (
+                    filteredCinemas.map((cinema) => (
+                      <li
+                        key={cinema.id}
+                        onClick={() => {
+                          setSelectedCinema(cinema.name);
+                          setCinemaDropdownOpen(false);
+                        }}
+                      >
+                        {cinema.name}
+                      </li>
+                    ))
+                  ) : (
+                    <li className="no-results">No cinemas found</li>
+                  )}
+                </ul>
+              </div>
+            )}
           </div>
 
           <div className="dropdown-group">
-            <label><span role="img" aria-label="clock">⏰</span> Select Showtime</label>
+            <label>
+              <span role="img" aria-label="clock">
+                ⏰
+              </span>{" "}
+              Select Showtime
+            </label>
             <div className="showtimes">
               {showtimes.map((time) => (
                 <button
                   key={time}
                   onClick={() => setSelectedShowtime(time)}
-                  className={`time-btn ${selectedShowtime === time ? "active" : ""}`}
+                  className={`time-btn ${
+                    selectedShowtime === time ? "active" : ""
+                  }`}
                 >
                   {time}
                 </button>
@@ -154,7 +224,9 @@ const BookingPage = () => {
             </div>
           </div>
 
-          <button className="continue-btn" onClick={handleBooking}>Continue</button>
+          <button className="continue-btn" onClick={handleBooking}>
+            Continue
+          </button>
         </div>
       </div>
     </div>
